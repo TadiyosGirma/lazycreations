@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Orbitron } from "next/font/google";
 import "./globals.css";
 import { ClientShell } from "@/components/client-shell";
+import { SkipLink } from "@/components/skip-link";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${orbitron.variable} antialiased bg-background text-foreground`}
       >
+        <SkipLink />
         <ClientShell>{children}</ClientShell>
       </body>
     </html>

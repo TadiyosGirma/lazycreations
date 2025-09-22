@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getMdxBySlug, listMdx } from "@/lib/mdx";
@@ -6,8 +7,12 @@ export async function generateStaticParams() {
   return listMdx("case-studies").map((p) => ({ slug: p.slug }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const fm = listMdx("case-studies").find((p) => p.slug === slug);
   if (!fm) return notFound();
   const { content } = getMdxBySlug("case-studies", slug);
@@ -17,4 +22,24 @@ export default function Page({ params }: { params: { slug: string } }) {
       <MDXRemote source={content} options={{ parseFrontmatter: true }} />
     </div>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const fm = listMdx("case-studies").find((p) => p.slug === slug);
+  if (!fm) return {};
+  return {
+    title: fm.title,
+    description: fm.excerpt,
+    alternates: { canonical: `/case-studies/${fm.slug}` },
+    openGraph: {
+      images: fm.heroImage
+        ? [{ url: fm.heroImage, width: 1200, height: 630 }]
+        : undefined,
+    },
+  };
 }

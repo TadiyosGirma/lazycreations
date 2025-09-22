@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -52,3 +53,10 @@ export default function Page() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Industries",
+  description:
+    "Professional services, clinics, real estate/construction, e‑commerce — pains → KPIs.",
+  alternates: { canonical: "/industries" },
+};

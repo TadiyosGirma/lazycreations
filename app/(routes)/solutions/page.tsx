@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/section-header";
 import { FeatureBlocks } from "@/components/marketing/features";
 import { CTA } from "@/components/marketing/cta";
@@ -17,3 +18,10 @@ export default function Page() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Solutions",
+  description:
+    "Productized offers: Support Copilot, Lead → Invoice, Dashboards, Content Assistant.",
+  alternates: { canonical: "/solutions" },
+};

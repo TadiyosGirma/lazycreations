@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CTA } from "@/components/marketing/cta";
@@ -58,3 +59,10 @@ export default function Page() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Strategy → Implementation → Enablement → Managed. Pricing bands for SMBs.",
+  alternates: { canonical: "/services" },
+};

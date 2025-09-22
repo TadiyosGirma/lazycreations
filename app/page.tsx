@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/section-header";
 
 export default function Home() {
   return (
-    <div className="min-h-[100svh]">
+    <div className="min-h-[100svh]" id="content">
       <MotionHero />
       <main className="container mx-auto px-6 md:px-8">
         <LogoCloud className="mt-16" />

@@ -1,24 +1,27 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const reduced =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        initial={reduced ? false : { opacity: 0, y: 8 }}
-        animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
-        exit={reduced ? { opacity: 1 } : { opacity: 0, y: -8 }}
-        transition={{ duration: 0.18 }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      key={pathname}
+      style={{ opacity: 0, animation: "fade-in 180ms ease-out forwards" }}
+    >
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+      {children}
+    </div>
   );
 }

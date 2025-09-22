@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/section-header";
 import { CTA } from "@/components/marketing/cta";
 
@@ -31,3 +32,9 @@ export default function Page() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Mission, differentiators, values. Talk to an engineer.",
+  alternates: { canonical: "/about" },
+};
