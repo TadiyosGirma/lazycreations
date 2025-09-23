@@ -8,7 +8,8 @@ export function CTA({ className = "" }: { className?: string }) {
         Ready to save 10+ hours per week?
       </h3>
       <p className="text-muted-foreground mt-2">
-        Tell us your bottleneck and we'll propose a pragmatic, ROI-first plan.
+        Tell us your bottleneck and we&apos;ll propose a pragmatic, ROI-first
+        plan.
       </p>
       <div className="mt-6 flex justify-center gap-3">
         <Button asChild size="lg">

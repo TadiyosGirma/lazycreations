@@ -7,7 +7,7 @@ import { listMdx } from "@/lib/mdx";
 import { ArrowRight, TrendingUp, Clock, Users } from "lucide-react";
 
 export default function Page() {
-  const posts = listMdx("case-studies");
+  // const posts = listMdx("case-studies");
 
   const caseStudySummaries = [
     {
@@ -39,8 +39,9 @@ export default function Page() {
         <p className="text-center text-muted-foreground">
           <strong className="text-foreground">Why case studies matter:</strong>{" "}
           Every SMB faces unique challenges, but the patterns are similar. Our
-          case studies show you exactly how we've solved problems like yours,
-          with real metrics and measurable outcomes. No fluff, just results.
+          case studies show you exactly how we&apos;ve solved problems like
+          yours, with real metrics and measurable outcomes. No fluff, just
+          results.
         </p>
       </div>
 
@@ -92,7 +93,7 @@ export default function Page() {
 
       <div className="mt-12 p-6 glass rounded-xl">
         <h3 className="font-display text-xl font-semibold mb-4">
-          What you'll find in each case study:
+          What you&apos;ll find in each case study:
         </h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
@@ -132,7 +133,7 @@ export default function Page() {
             </h4>
             <p className="text-sm text-muted-foreground">
               How we built the solution, what tools we used, and how we ensured
-              smooth adoption by the client's team.
+              smooth adoption by the client&apos;s team.
             </p>
           </div>
         </div>

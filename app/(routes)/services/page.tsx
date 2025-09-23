@@ -108,7 +108,9 @@ export default function Page() {
               <p className="text-sm text-muted-foreground">{b.description}</p>
 
               <div>
-                <h4 className="text-sm font-medium mb-2">What's included:</h4>
+                <h4 className="text-sm font-medium mb-2">
+                  What&apos;s included:
+                </h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   {b.deliverables.map((item) => (
                     <li key={item} className="flex items-start">

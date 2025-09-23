@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CTA } from "@/components/marketing/cta";
-import { CheckCircle, TrendingUp, Clock, Users } from "lucide-react";
+import { CheckCircle, TrendingUp, Clock } from "lucide-react";
 import Link from "next/link";
 
 const industries = [

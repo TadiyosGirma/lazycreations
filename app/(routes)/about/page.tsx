@@ -41,8 +41,8 @@ export default function Page() {
             </p>
             <p className="text-muted-foreground mb-4">
               We founded Lazy Creations to change that. Our name reflects our
-              philosophy: we make technology work so hard that you don't have
-              to. We believe every SMB deserves access to the same powerful
+              philosophy: we make technology work so hard that you don&apos;t
+              have to. We believe every SMB deserves access to the same powerful
               tools that help larger companies thrive.
             </p>
             <p className="text-muted-foreground">
@@ -224,10 +224,10 @@ export default function Page() {
             <div>
               <h3 className="font-medium text-lg mb-2">Our Approach</h3>
               <p className="text-muted-foreground mb-4">
-                We're not a traditional agency or consulting firm. We're a team
-                of builders who happen to love working with SMBs. Every project
-                is a partnership, and every client becomes part of our extended
-                family.
+                We&apos;re not a traditional agency or consulting firm.
+                We&apos;re a team of builders who happen to love working with
+                SMBs. Every project is a partnership, and every client becomes
+                part of our extended family.
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -278,7 +278,7 @@ export default function Page() {
           </div>
           <p className="text-center text-muted-foreground mt-6">
             We measure our success by your success. When you save time, reduce
-            errors, and grow revenue, we've done our job.
+            errors, and grow revenue, we&apos;ve done our job.
           </p>
         </div>
       </div>

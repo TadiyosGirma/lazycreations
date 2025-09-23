@@ -152,7 +152,7 @@ export default function Page() {
               </div>
 
               <div>
-                <h4 className="font-medium mb-3">What's included:</h4>
+                <h4 className="font-medium mb-3">What&apos;s included:</h4>
                 <ul className="space-y-2">
                   {solution.includes.map((item, index) => (
                     <li
