@@ -34,10 +34,10 @@ export default function Page() {
             <p className="text-muted-foreground mb-4">
               While enterprise companies had teams of engineers and unlimited
               budgets for AI and automation, SMBs were stuck with outdated
-              processes, manual workflows, and the constant pressure to "do more
-              with less." We saw brilliant business owners spending 40+ hours
-              per week on tasks that could be automated, while their competitors
-              with bigger budgets gained unfair advantages.
+              processes, manual workflows, and the constant pressure to &quot;do
+              more with less.&quot; We saw brilliant business owners spending
+              40+ hours per week on tasks that could be automated, while their
+              competitors with bigger budgets gained unfair advantages.
             </p>
             <p className="text-muted-foreground mb-4">
               We founded Lazy Creations to change that. Our name reflects our
@@ -46,10 +46,10 @@ export default function Page() {
               tools that help larger companies thrive.
             </p>
             <p className="text-muted-foreground">
-              Today, we've helped dozens of SMBs save thousands of hours and
-              hundreds of thousands of dollars by implementing practical,
-              ROI-focused automation and AI solutions. We're not just
-              consultants—we're your technology partners in growth.
+              Today, we&apos;ve helped dozens of SMBs save thousands of hours
+              and hundreds of thousands of dollars by implementing practical,
+              ROI-focused automation and AI solutions. We&apos;re not just
+              consultants—we&apos;re your technology partners in growth.
             </p>
           </div>
         </div>
@@ -109,8 +109,8 @@ export default function Page() {
               </div>
               <h3 className="font-medium mb-2">Clarity</h3>
               <p className="text-sm text-muted-foreground">
-                We communicate in plain English, not tech jargon. You'll always
-                know what we're building and why.
+                We communicate in plain English, not tech jargon. You&apos;ll
+                always know what we&apos;re building and why.
               </p>
             </div>
             <div className="text-center">
@@ -120,7 +120,7 @@ export default function Page() {
               <h3 className="font-medium mb-2">Care</h3>
               <p className="text-sm text-muted-foreground">
                 We treat your business like our own. Your success is our
-                success, and we're invested in your long-term growth.
+                success, and we&apos;re invested in your long-term growth.
               </p>
             </div>
             <div className="text-center">
@@ -149,7 +149,7 @@ export default function Page() {
               </h3>
               <p className="text-muted-foreground mb-4">
                 No sales fluff or technical hand-waving. When you talk to us,
-                you're talking directly to the people who will build your
+                you&apos;re talking directly to the people who will build your
                 solution. We ask the right questions, give honest answers, and
                 focus on what actually works.
               </p>
@@ -161,8 +161,9 @@ export default function Page() {
               </h3>
               <p className="text-muted-foreground mb-4">
                 Every project starts with a clear understanding of the business
-                value. We won't build something just because it's cool—we build
-                what will save you time, reduce errors, and increase revenue.
+                value. We won&apos;t build something just because it&apos;s
+                cool—we build what will save you time, reduce errors, and
+                increase revenue.
               </p>
             </div>
             <div>
@@ -198,7 +199,7 @@ export default function Page() {
               <h3 className="font-medium text-lg mb-2">Leadership Team</h3>
               <p className="text-muted-foreground mb-4">
                 Our leadership team combines decades of experience in software
-                engineering, business operations, and SMB consulting. We've
+                engineering, business operations, and SMB consulting. We&apos;ve
                 worked at startups, scale-ups, and enterprise companies, but our
                 hearts are with the small businesses that drive our economy.
               </p>
@@ -215,7 +216,7 @@ export default function Page() {
                   <h4 className="font-medium">Business Strategy</h4>
                   <p className="text-sm text-muted-foreground">
                     Former SMB owners and consultants who understand the unique
-                    challenges of running a small business in today's
+                    challenges of running a small business in today&apos;s
                     competitive landscape.
                   </p>
                 </div>

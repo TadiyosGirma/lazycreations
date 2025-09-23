@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CTA } from "@/components/marketing/cta";
-import { listMdx } from "@/lib/mdx";
+// import { listMdx } from "@/lib/mdx";
 import { ArrowRight, TrendingUp, Clock, Users } from "lucide-react";
 
 export default function Page() {
