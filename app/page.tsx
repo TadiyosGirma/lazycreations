@@ -1,14 +1,33 @@
 import { MotionHero } from "@/components/hero";
+import dynamic from "next/dynamic";
 import { CTA } from "@/components/marketing/cta";
 import { LogoCloud } from "@/components/marketing/logo-cloud";
-import { FeatureBlocks } from "@/components/marketing/features";
-import { Metrics } from "@/components/marketing/metrics";
-import { Testimonial } from "@/components/marketing/testimonial";
+const FeatureBlocks = dynamic(
+  () =>
+    import("@/components/marketing/features").then((m) => ({
+      default: m.FeatureBlocks,
+    })),
+  { ssr: true },
+);
+const Metrics = dynamic(
+  () =>
+    import("@/components/marketing/metrics").then((m) => ({
+      default: m.Metrics,
+    })),
+  { ssr: true },
+);
+const Testimonial = dynamic(
+  () =>
+    import("@/components/marketing/testimonial").then((m) => ({
+      default: m.Testimonial,
+    })),
+  { ssr: true },
+);
 import { SectionHeader } from "@/components/section-header";
 
 export default function Home() {
   return (
-    <div className="min-h-[100svh]" id="content">
+    <div className="min-h-[100svh]">
       <MotionHero />
       <main className="container mx-auto px-6 md:px-8">
         <LogoCloud className="mt-16" />

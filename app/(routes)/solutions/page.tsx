@@ -8,6 +8,7 @@ export default function Page() {
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
       <ProductOfferSeo />
+      <h1 className="sr-only">Solutions</h1>
       <SectionHeader
         eyebrow="Solutions"
         title="Productized offers"

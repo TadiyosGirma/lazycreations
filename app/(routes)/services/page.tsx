@@ -29,6 +29,7 @@ const bands = [
 export default function Page() {
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
+      <h1 className="sr-only">Services</h1>
       <SectionHeader
         eyebrow="Services"
         title="Strategy → Implementation → Enablement → Managed"

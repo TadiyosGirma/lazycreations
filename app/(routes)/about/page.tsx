@@ -5,6 +5,7 @@ import { CTA } from "@/components/marketing/cta";
 export default function Page() {
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
+      <h1 className="sr-only">About</h1>
       <SectionHeader
         eyebrow="About"
         title="Mission & values"

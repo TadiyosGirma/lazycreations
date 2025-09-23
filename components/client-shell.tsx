@@ -25,7 +25,9 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
     <>
       <SeoDefaultClient />
       <SiteHeader />
-      <PageTransition>{children}</PageTransition>
+      <main id="content" role="main">
+        <PageTransition>{children}</PageTransition>
+      </main>
       <SiteFooter />
       <ToasterClient />
       <AnalyticsClient />

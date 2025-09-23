@@ -6,6 +6,7 @@ export default function Page() {
   const posts = listMdx("case-studies");
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
+      <h1 className="sr-only">Case studies</h1>
       <SectionHeader
         eyebrow="Case studies"
         title="Real impact"

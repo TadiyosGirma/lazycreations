@@ -36,7 +36,10 @@ export default function Page() {
     if (values.website) return; // bot
     try {
       setBusy(true);
-      const res = await fetch("https://formspree.io/f/xayrknqp", {
+      const endpoint =
+        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ??
+        "https://formspree.io/f/xayrknqp";
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -54,6 +57,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
+      <h1 className="sr-only">Contact</h1>
       <h1 className="font-display text-4xl font-bold">Contact</h1>
       <p className="text-muted-foreground mt-2 max-w-2xl">
         Tell us about your goals. Include systems and constraints. Optional:

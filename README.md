@@ -19,7 +19,9 @@ Stack: Next.js (App Router, TS), Tailwind v4, shadcn/ui, Framer Motion, MDX, nex
 - Default: Formspree POST to placeholder endpoint in `app/(routes)/contact/page.tsx`
 - Honeypot field `website`, debounce and toasts included
 - Fallback: `mailto:info@lazycreations.ai`
-- Optional: create `app/api/contact/route.ts` with Resend and switch fetch URL
+- Env: set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` to your Formspree endpoint
+- Optional API: `app/api/contact/route.ts` with Resend (disabled by default)
+  - Set `RESEND_API_KEY` and switch the form `fetch` to `/api/contact`
 
 ## SEO
 
@@ -37,6 +39,9 @@ Stack: Next.js (App Router, TS), Tailwind v4, shadcn/ui, Framer Motion, MDX, nex
 
 - Vercel: import repo, set framework to Next.js, default settings
 - Analytics: `@vercel/analytics` automatically enabled
+- Environment variables:
+  - `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (e.g., https://formspree.io/f/xxxx)
+  - Optional: `RESEND_API_KEY`
 
 ## Brand
 

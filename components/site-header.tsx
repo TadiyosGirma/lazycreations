@@ -27,21 +27,25 @@ export function SiteHeader() {
         <Link href="/" className="font-orbitron text-xl tracking-wide">
           LAZY CREATIONS
         </Link>
-        <nav className="hidden md:block">
+        <nav className="hidden md:block" aria-label="Primary">
           <NavigationMenu>
             <NavigationMenuList>
-              {links.map((l) => (
-                <NavigationMenuItem key={l.href}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href={l.href}
-                      className={`px-3 py-1 rounded-md transition-colors ${pathname === l.href ? "text-[var(--accent-1)]" : "text-muted-foreground hover:text-foreground"}`}
-                    >
-                      {l.label}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
+              {links.map((l) => {
+                const active = pathname === l.href;
+                return (
+                  <NavigationMenuItem key={l.href}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={l.href}
+                        aria-current={active ? "page" : undefined}
+                        className={`px-4 py-2 rounded-md transition-colors ${active ? "text-[var(--accent-1)]" : "text-muted-foreground hover:text-foreground"}`}
+                      >
+                        {l.label}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                );
+              })}
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
