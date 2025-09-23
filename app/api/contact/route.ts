@@ -9,7 +9,7 @@ export async function POST(req: Request) {
         { status: 503 },
       );
     }
-    const payload = await req.json();
+    await req.json();
     // Example shape: { name, company, email, phone, budget, message }
     // TODO: Send email via Resend SDK here.
     return NextResponse.json({ ok: true });

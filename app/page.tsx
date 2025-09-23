@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="min-h-[100svh]">
       <MotionHero />
-      <main className="container mx-auto px-6 md:px-8">
+      <main id="content" role="main" className="container mx-auto px-6 md:px-8">
         <LogoCloud className="mt-16" />
         <SectionHeader
           eyebrow="Solutions"
