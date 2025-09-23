@@ -19,11 +19,14 @@ export function MotionHero() {
             LAZY CREATIONS LLC
           </p>
           <h1 className="font-display text-5xl md:text-6xl font-bold leading-[1.05]">
-            Ship automations and AI that pay for themselves
+            Modern Software & AI Solutions for SMB Growth
           </h1>
           <p className="text-muted-foreground mt-6 text-lg max-w-2xl">
-            Strategy → Implementation → Enablement → Managed. We build copilots,
-            lead-to-invoice automations, dashboards, and content assistants.
+            We help SMBs modernize processes, adopt AI, and automate busywork to
+            save time and boost revenue. Strategy → Implementation → Enablement
+            → Managed. We deliver modern websites, AI copilots, lead-to-invoice
+            automations, dashboards, and content assistants with ROI measured in
+            weeks.
           </p>
           <div className="mt-8 flex gap-3">
             <Button asChild className="shadow-[var(--glow-accent-1)]">

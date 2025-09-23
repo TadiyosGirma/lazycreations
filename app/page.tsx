@@ -2,6 +2,7 @@ import { MotionHero } from "@/components/hero";
 import dynamic from "next/dynamic";
 import { CTA } from "@/components/marketing/cta";
 import { LogoCloud } from "@/components/marketing/logo-cloud";
+import { CaseStudyTeasers } from "@/components/marketing/case-study-teasers";
 const FeatureBlocks = dynamic(
   () =>
     import("@/components/marketing/features").then((m) => ({
@@ -44,6 +45,7 @@ export default function Home() {
           title="Customers win time back"
           subtitle="Clinics, logistics, and e‑commerce teams reclaim 10+ hours weekly."
         />
+        <CaseStudyTeasers />
         <Testimonial />
         <CTA className="my-24" />
       </main>

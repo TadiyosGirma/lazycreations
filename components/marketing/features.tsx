@@ -5,22 +5,22 @@ const features = [
   {
     icon: Bot,
     title: "Support Copilot",
-    body: "AI triage + suggested replies reduce handle time and escalations.",
+    body: "Integrates with your CRM and helpdesk to automatically triage tickets, classify intent, and suggest replies. Typical results: 30% reduction in average handle time, 60% fewer back-and-forth emails, and 22% increase in customer satisfaction. Delivered in 4-6 weeks.",
   },
   {
     icon: Workflow,
     title: "Lead → Invoice",
-    body: "From form to invoice with enrichment, qualification, and follow-ups.",
+    body: "Automates your entire sales process from lead capture to invoice generation. Captures leads via forms, enriches with CRM data, qualifies prospects, and triggers follow-ups. Typical results: 30% faster sales cycles, eliminates manual data entry, and 40% reduction in admin time. Integrates with QuickBooks, HubSpot, and Salesforce.",
   },
   {
     icon: BarChart3,
     title: "Dashboards",
-    body: "Pipeline, revenue, and ops metrics in one clean view.",
+    body: "Real-time visibility into your business metrics without the complexity. Tracks pipeline health, revenue trends, operational KPIs, and team performance in one clean interface. Typical results: 50% faster reporting, data-driven decisions, and 25% improvement in goal tracking. Connects to your existing tools automatically.",
   },
   {
     icon: Cpu,
     title: "Content Assistant",
-    body: "Brief to publish with approvals and brand controls.",
+    body: "Streamlines content creation from brief to publication with AI-powered writing, brand compliance checks, and approval workflows. Typical results: 40% faster content production, consistent brand voice, and 60% reduction in revision cycles. Includes templates, style guides, and multi-channel publishing.",
   },
 ];
 

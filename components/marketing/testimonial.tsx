@@ -8,6 +8,9 @@ export function Testimonial() {
         </p>
         <footer className="mt-4 text-sm text-muted-foreground">
           COO, Multi-location Clinic
+          <div className="mt-1 text-xs text-[var(--accent-1)] font-medium">
+            40% admin time saved
+          </div>
         </footer>
       </blockquote>
       <div className="hidden md:block h-24 w-px bg-[linear-gradient(to_bottom,transparent,rgba(139,92,246,0.5),transparent)]" />

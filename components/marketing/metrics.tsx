@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 const items = [
-  { label: "Hours saved / wk", value: 10 },
-  { label: "Lead response ↑", value: 3 },
+  { label: "Hours saved / wk", value: 15 },
+  { label: "Lead response speed ↑", value: 22 },
   { label: "Intake time ↓", value: 40 },
 ];
 

@@ -5,10 +5,10 @@ export function CTA({ className = "" }: { className?: string }) {
   return (
     <div className={`glass rounded-2xl p-8 md:p-10 text-center ${className}`}>
       <h3 className="font-display text-2xl md:text-3xl font-semibold">
-        Ready to unlock 10+ hours per week?
+        Ready to save 10+ hours per week?
       </h3>
       <p className="text-muted-foreground mt-2">
-        Tell us your bottleneck. We’ll propose a pragmatic, ROI-first plan.
+        Tell us your bottleneck and we'll propose a pragmatic, ROI-first plan.
       </p>
       <div className="mt-6 flex justify-center gap-3">
         <Button asChild size="lg">
