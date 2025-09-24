@@ -45,6 +45,7 @@ export function SiteHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href={l.href}
+                          prefetch={false}
                           aria-current={active ? "page" : undefined}
                           className={`px-4 py-2 rounded-md transition-colors ${active ? "text-[var(--accent-1)]" : "text-muted-foreground hover:text-foreground"}`}
                         >
@@ -97,7 +98,11 @@ export function SiteHeader() {
                 <div className="mt-auto p-4">
                   <SheetClose asChild>
                     <Button asChild className="w-full">
-                      <Link href="/contact" data-cta="mobile-header-cta">
+                      <Link
+                        href="/contact"
+                        prefetch={false}
+                        data-cta="mobile-header-cta"
+                      >
                         Contact
                       </Link>
                     </Button>
@@ -111,7 +116,7 @@ export function SiteHeader() {
             size="sm"
             className="accent-glow hidden md:inline-flex"
           >
-            <Link href="/contact" data-cta="header-cta">
+            <Link href="/contact" prefetch={false} data-cta="header-cta">
               Contact
             </Link>
           </Button>
