@@ -17,7 +17,13 @@ export function LogoCloud({ className = "" }: { className?: string }) {
           className="glass rounded-xl p-4 flex items-center justify-center"
           aria-label={`${l.name} logo`}
         >
-          <Image src={l.src} alt="" width={80} height={24} />
+          <Image
+            src={l.src}
+            alt={l.name}
+            width={80}
+            height={24}
+            loading="lazy"
+          />
         </div>
       ))}
     </div>

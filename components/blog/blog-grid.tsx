@@ -76,19 +76,18 @@ export function BlogGrid({ posts }: BlogGridProps) {
             key={p.slug}
             className="neon-border bg-surface/60 hover:bg-surface/80 transition-colors overflow-hidden"
           >
-            <div
-              className="aspect-[16/9] w-full bg-gradient-to-br from-[var(--accent-2)]/20 to-[var(--accent-1)]/10"
-              aria-hidden="true"
-            >
-              {/* Optional: could render next/image if local images are added */}
+            <div className="aspect-[16/9] w-full bg-gradient-to-br from-[var(--accent-2)]/20 to-[var(--accent-1)]/10">
               {p.heroImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={p.heroImage}
                   alt={p.heroAlt ?? p.title}
                   className="h-full w-full object-cover"
+                  loading="lazy"
                 />
-              ) : null}
+              ) : (
+                <span className="sr-only">{p.title}</span>
+              )}
             </div>
             <CardHeader>
               <CardTitle className="font-display text-lg">
