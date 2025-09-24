@@ -10,7 +10,7 @@ Small and mid-sized businesses often struggle with manual, repetitive tasks that
 
 After working with dozens of SMBs, we've identified five automation patterns that consistently deliver 10+ hours of weekly time savings. Here's how to implement them in your business.
 
-## 1. Digital Intake Forms with CRM Integration
+## 1. 🧾 Digital intake forms with CRM integration
 
 **The Problem:** Manual data entry from paper forms or scattered digital forms creates bottlenecks and errors.
 
@@ -23,13 +23,25 @@ After working with dozens of SMBs, we've identified five automation patterns tha
 - Set up validation rules to catch errors before they enter your system
 - Automatically assign leads to the right team member based on form responses
 
+> Tip: Keep forms short (5–7 fields). Long forms crush completion rates.
+
+```yaml
+# Example workflow
+trigger: Typeform new entry
+actions:
+  - Create contact in HubSpot
+  - Create deal in Pipedrive
+  - Post Slack notification to #intake
+  - Send confirm email to prospect
+```
+
 **Tools needed:** Form builder, CRM, integration platform (Zapier/Make), email automation tool
 
 **Time savings:** 2-3 hours per week per person handling intake
 
 **Real example:** A 15-person law firm automated their client intake process, reducing data entry time from 45 minutes to 5 minutes per client. They now handle 3x more inquiries with the same staff.
 
-## 2. Lead Qualification and Routing Workflows
+## 2. 🎯 Lead qualification and routing workflows
 
 **The Problem:** Sales teams waste time on unqualified leads while good prospects slip through the cracks.
 
@@ -42,13 +54,23 @@ After working with dozens of SMBs, we've identified five automation patterns tha
 - Route high-value leads to senior sales reps, others to junior staff
 - Set up alerts for leads that meet specific criteria (e.g., budget over $50k)
 
+```yaml
+# Simple scoring model
+score = 0
+if company_size >= 50: score += 20
+if budget == "50k+": score += 30
+if timeline in ["this quarter", "next 60 days"]: score += 20
+if role in ["owner", "vp", "director"]: score += 15
+route = "AE" if score >= 60 else "SDR"
+```
+
 **Tools needed:** CRM with lead scoring, email automation, calendar scheduling tool
 
 **Time savings:** 3-4 hours per week per salesperson
 
 **Real example:** A marketing agency implemented lead scoring and saw a 40% increase in qualified meetings while reducing time spent on unqualified prospects by 60%.
 
-## 3. Invoice Generation and Payment Processing
+## 3. 💳 Invoice generation and payment processing
 
 **The Problem:** Creating invoices manually takes time and leads to billing delays and errors.
 
@@ -61,13 +83,23 @@ After working with dozens of SMBs, we've identified five automation patterns tha
 - Automatically generate invoices when projects reach milestones
 - Send invoices via email with payment links (Stripe, PayPal, QuickBooks)
 
+```yaml
+# Milestone billing automation
+trigger: Project milestone completed (Asana)
+actions:
+  - Create invoice (QuickBooks)
+  - Attach PO and timesheet export
+  - Email invoice with Stripe payment link
+  - Update CRM opportunity stage to "Invoiced"
+```
+
 **Tools needed:** Project management tool, accounting software (QuickBooks, Xero), payment processor
 
 **Time savings:** 2-3 hours per week for accounting staff
 
 **Real example:** A consulting firm automated their billing process, reducing invoice creation time from 2 hours to 15 minutes per client while improving cash flow by 25%.
 
-## 4. AI-Powered Customer Support Triage
+## 4. 🤖 AI-powered customer support triage
 
 **The Problem:** Support teams spend too much time on routine inquiries instead of complex issues.
 
@@ -80,13 +112,15 @@ After working with dozens of SMBs, we've identified five automation patterns tha
 - Route technical issues to specialists, billing questions to accounting
 - Set up automated responses for frequently asked questions
 
+> Tip: Start with assisted mode (agent sees suggested replies). Move to auto‑reply only for low‑risk FAQs once quality is proven.
+
 **Tools needed:** Helpdesk software, AI classification tool, knowledge base, email templates
 
 **Time savings:** 4-5 hours per week per support agent
 
 **Real example:** A logistics company reduced average handle time by 30% and improved customer satisfaction by 12% using AI-powered ticket triage.
 
-## 5. KPI Dashboards and Automated Reporting
+## 5. 📊 KPI dashboards and automated reporting
 
 **The Problem:** Managers spend hours each week creating reports that should be automatic.
 
@@ -98,6 +132,17 @@ After working with dozens of SMBs, we've identified five automation patterns tha
 - Create visualizations for key metrics (revenue, pipeline, team performance)
 - Set up automated reports that email stakeholders weekly/monthly
 - Use alerts to notify you when metrics fall outside normal ranges
+
+```yaml
+# Friday KPI digest
+schedule: Friday 3:00pm local
+metrics:
+  - pipeline_value: CRM
+  - cash_flow_30d: Accounting
+  - aht_minutes: Helpdesk
+  - web_signups: Analytics
+deliver: Email summary to leadership@company.com
+```
 
 **Tools needed:** Dashboard tool (Tableau, Power BI, custom solution), data connectors, reporting tool
 
