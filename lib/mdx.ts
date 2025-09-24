@@ -8,6 +8,7 @@ export type Frontmatter = {
   excerpt?: string;
   tags?: string[];
   heroImage?: string;
+  heroAlt?: string;
   slug: string;
 };
 
@@ -44,5 +45,6 @@ function normalizeFrontmatter(data: unknown): Omit<Frontmatter, "slug"> {
     ? (obj.tags as unknown[]).map((t) => String(t))
     : undefined;
   const heroImage = obj.heroImage ? String(obj.heroImage) : undefined;
-  return { title, date, excerpt, tags, heroImage };
+  const heroAlt = obj.heroAlt ? String(obj.heroAlt) : undefined;
+  return { title, date, excerpt, tags, heroImage, heroAlt };
 }
