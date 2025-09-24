@@ -1,6 +1,4 @@
 "use client";
-
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -9,12 +7,7 @@ export function MotionHero() {
     <section className="relative overflow-hidden py-24 md:py-32">
       <AnimatedGrid />
       <div className="container mx-auto px-6 md:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className="max-w-3xl"
-        >
+        <div className="max-w-3xl opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-200">
           <p className="text-sm tracking-widest text-[var(--accent-1)] uppercase mb-4">
             LAZY CREATIONS LLC
           </p>
@@ -40,7 +33,7 @@ export function MotionHero() {
               </Link>
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
