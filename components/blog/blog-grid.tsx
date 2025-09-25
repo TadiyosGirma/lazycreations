@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Frontmatter } from "@/lib/mdx";
@@ -13,14 +14,18 @@ type BlogGridProps = {
 const PAGE_SIZE = 9;
 
 export function BlogGrid({ posts }: BlogGridProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const allTags = React.useMemo(() => {
     const tagSet = new Set<string>();
     posts.forEach((p) => (p.tags ?? []).forEach((t) => tagSet.add(t)));
     return Array.from(tagSet).sort();
   }, [posts]);
 
-  const [activeTag, setActiveTag] = React.useState<string | null>(null);
-  const [page, setPage] = React.useState(1);
+  // Get state from URL params
+  const activeTag = searchParams.get("tag");
+  const page = Math.max(1, parseInt(searchParams.get("page") || "1", 10));
 
   const filtered = React.useMemo(() => {
     const base = activeTag
@@ -35,16 +40,48 @@ export function BlogGrid({ posts }: BlogGridProps) {
     return filtered.slice(start, start + PAGE_SIZE);
   }, [filtered, page]);
 
-  React.useEffect(() => {
-    // Reset to first page when filter changes
-    setPage(1);
-  }, [activeTag]);
+  // Update URL params when state changes
+  const updateParams = React.useCallback(
+    (newTag: string | null, newPage: number) => {
+      const params = new URLSearchParams(searchParams);
+      if (newTag) {
+        params.set("tag", newTag);
+      } else {
+        params.delete("tag");
+      }
+      if (newPage > 1) {
+        params.set("page", newPage.toString());
+      } else {
+        params.delete("page");
+      }
+      router.push(`?${params.toString()}`, { scroll: false });
+    },
+    [router, searchParams],
+  );
+
+  const handleTagChange = React.useCallback(
+    (tag: string | null) => {
+      React.startTransition(() => {
+        updateParams(tag, 1); // Reset to page 1 when changing tags
+      });
+    },
+    [updateParams],
+  );
+
+  const handlePageChange = React.useCallback(
+    (newPage: number) => {
+      React.startTransition(() => {
+        updateParams(activeTag, newPage);
+      });
+    },
+    [updateParams, activeTag],
+  );
 
   return (
     <div className="mt-8">
       <div className="flex flex-wrap gap-2">
         <button
-          onClick={() => setActiveTag(null)}
+          onClick={() => handleTagChange(null)}
           className={`px-3 py-1 rounded-md text-sm transition-colors ${
             activeTag === null
               ? "bg-[var(--accent-1)]/10 text-[var(--accent-1)] border border-[var(--accent-1)]/30"
@@ -57,7 +94,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
         {allTags.map((tag) => (
           <button
             key={tag}
-            onClick={() => setActiveTag(tag)}
+            onClick={() => handleTagChange(tag)}
             className={`px-3 py-1 rounded-md text-sm transition-colors ${
               activeTag === tag
                 ? "bg-[var(--accent-1)]/10 text-[var(--accent-1)] border border-[var(--accent-1)]/30"
@@ -106,18 +143,13 @@ export function BlogGrid({ posts }: BlogGridProps) {
               <p className="text-sm text-muted-foreground line-clamp-3">
                 {p.excerpt}
               </p>
-              <Button
-                asChild
-                variant="ghost"
-                className="mt-4 px-0 text-[var(--accent-1)]"
+              <Link
+                href={`/blog/${p.slug}`}
+                aria-label={`Read more: ${p.title}`}
+                className="mt-4 inline-flex items-center text-sm font-medium text-[var(--accent-1)] hover:text-[var(--accent-1)]/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-1)] focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
               >
-                <Link
-                  href={`/blog/${p.slug}`}
-                  aria-label={`Read more: ${p.title}`}
-                >
-                  Read more →
-                </Link>
-              </Button>
+                Read more →
+              </Link>
             </CardContent>
           </Card>
         ))}
@@ -128,7 +160,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            onClick={() => handlePageChange(Math.max(1, page - 1))}
             disabled={page === 1}
           >
             Previous
@@ -139,7 +171,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            onClick={() => handlePageChange(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}
           >
             Next
