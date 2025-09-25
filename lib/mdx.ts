@@ -9,6 +9,8 @@ export type Frontmatter = {
   tags?: string[];
   heroImage?: string;
   heroAlt?: string;
+  category?: string;
+  sourceUrl?: string;
   slug: string;
 };
 
@@ -24,7 +26,19 @@ export function listMdx(type: "blog" | "case-studies"): Frontmatter[] {
       const raw = fs.readFileSync(path.join(dir, file), "utf8");
       const { data } = matter(raw);
       const fm = normalizeFrontmatter(data);
-      return { ...fm, slug: file.replace(/\.mdx$/, "") } satisfies Frontmatter;
+      const slug = file.replace(/\.mdx$/, "");
+      // Prefer local hero under /public/blog-assets/<slug>/hero.(webp|jpg|png|svg)
+      const baseDir = path.join(process.cwd(), "public", "blog-assets", slug);
+      const localExt = ["webp", "jpg", "png", "svg"].find((ext) =>
+        fs.existsSync(path.join(baseDir, `hero.${ext}`)),
+      );
+      const localHero = localExt
+        ? `/blog-assets/${slug}/hero.${localExt}`
+        : undefined;
+      // Use local if present, else fm.heroImage, else placeholder
+      const heroImage =
+        localHero ?? fm.heroImage ?? "/blog-assets/placeholder.svg";
+      return { ...fm, heroImage, slug } satisfies Frontmatter;
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1));
 }
@@ -46,5 +60,19 @@ function normalizeFrontmatter(data: unknown): Omit<Frontmatter, "slug"> {
     : undefined;
   const heroImage = obj.heroImage ? String(obj.heroImage) : undefined;
   const heroAlt = obj.heroAlt ? String(obj.heroAlt) : undefined;
-  return { title, date, excerpt, tags, heroImage, heroAlt };
+  let category = obj.category ? String(obj.category) : undefined;
+  if (!category && tags && tags.length > 0) {
+    category = tags[0];
+  }
+  const sourceUrl = obj.sourceUrl ? String(obj.sourceUrl) : undefined;
+  return {
+    title,
+    date,
+    excerpt,
+    tags,
+    heroImage,
+    heroAlt,
+    category,
+    sourceUrl,
+  };
 }
