@@ -1,0 +1,26 @@
+[
+  {
+    "url": "http://localhost:3014/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/Users/unbiasedaireview/Library/Mobile Documents/com~apple~CloudDocs/Documents/LLCs/Lazy Creations LLC/DEVELOPEMENT/lazycreations/lhci_reports/localhost--2025_09_24_23_53_50.report.html",
+    "jsonPath": "/Users/unbiasedaireview/Library/Mobile Documents/com~apple~CloudDocs/Documents/LLCs/Lazy Creations LLC/DEVELOPEMENT/lazycreations/lhci_reports/localhost--2025_09_24_23_53_50.report.json",
+    "summary": {
+      "performance": 0.92,
+      "accessibility": 0.96,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:3014/services",
+    "isRepresentativeRun": true,
+    "htmlPath": "/Users/unbiasedaireview/Library/Mobile Documents/com~apple~CloudDocs/Documents/LLCs/Lazy Creations LLC/DEVELOPEMENT/lazycreations/lhci_reports/localhost-services-2025_09_24_23_54_01.report.html",
+    "jsonPath": "/Users/unbiasedaireview/Library/Mobile Documents/com~apple~CloudDocs/Documents/LLCs/Lazy Creations LLC/DEVELOPEMENT/lazycreations/lhci_reports/localhost-services-2025_09_24_23_54_01.report.json",
+    "summary": {
+      "performance": 0.98,
+      "accessibility": 0.98,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  }
+]

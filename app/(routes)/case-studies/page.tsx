@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { SectionHeader } from "@/components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { CTA } from "@/components/marketing/cta";
 // import { listMdx } from "@/lib/mdx";
 import { ArrowRight, TrendingUp, Clock, Users } from "lucide-react";
@@ -77,15 +76,14 @@ export default function Page() {
                 </h4>
                 <p className="text-sm font-medium">{study.impact}</p>
               </div>
-              <Button asChild className="w-full">
-                <Link
-                  href={study.href}
-                  data-cta={`case-study-${study.title.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  Read full case study
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <Link
+                href={study.href}
+                data-cta={`case-study-${study.title.toLowerCase().replace(/\s+/g, "-")}`}
+                className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                Read full case study
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </CardContent>
           </Card>
         ))}
