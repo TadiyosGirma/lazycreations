@@ -16,6 +16,7 @@ const PAGE_SIZE = 9;
 export function BlogGrid({ posts }: BlogGridProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [isClient, setIsClient] = React.useState(false);
 
   const allTags = React.useMemo(() => {
     const tagSet = new Set<string>();
@@ -23,9 +24,15 @@ export function BlogGrid({ posts }: BlogGridProps) {
     return Array.from(tagSet).sort();
   }, [posts]);
 
-  // Get state from URL params
-  const activeTag = searchParams.get("tag");
-  const page = Math.max(1, parseInt(searchParams.get("page") || "1", 10));
+  // Get state from URL params - only after hydration
+  const activeTag = isClient ? searchParams.get("tag") : null;
+  const page = isClient
+    ? Math.max(1, parseInt(searchParams.get("page") || "1", 10))
+    : 1;
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const filtered = React.useMemo(() => {
     const base = activeTag
@@ -76,6 +83,31 @@ export function BlogGrid({ posts }: BlogGridProps) {
     },
     [updateParams, activeTag],
   );
+
+  // Show loading state during hydration
+  if (!isClient) {
+    return (
+      <div className="mt-8">
+        <div className="flex flex-wrap gap-2 mb-6">
+          <div className="h-8 w-16 bg-surface/60 rounded-md animate-pulse" />
+          <div className="h-8 w-20 bg-surface/60 rounded-md animate-pulse" />
+          <div className="h-8 w-24 bg-surface/60 rounded-md animate-pulse" />
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="bg-surface/60 rounded-lg overflow-hidden">
+              <div className="aspect-[16/9] bg-gradient-to-br from-[var(--accent-2)]/20 to-[var(--accent-1)]/10 animate-pulse" />
+              <div className="p-6 space-y-3">
+                <div className="h-4 bg-surface/80 rounded animate-pulse" />
+                <div className="h-3 bg-surface/80 rounded w-3/4 animate-pulse" />
+                <div className="h-3 bg-surface/80 rounded w-1/2 animate-pulse" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-8">
