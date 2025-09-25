@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { BlogCard } from "@/components/blog/blog-card";
 import type { Frontmatter } from "@/lib/mdx";
 
 type BlogGridProps = {
@@ -139,51 +138,10 @@ export function BlogGrid({ posts }: BlogGridProps) {
         ))}
       </div>
 
-      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {pageItems.map((p) => (
-          <Card
-            key={p.slug}
-            className="neon-border bg-surface/60 hover:bg-surface/80 transition-colors overflow-hidden"
-          >
-            <div className="aspect-[16/9] w-full bg-gradient-to-br from-[var(--accent-2)]/20 to-[var(--accent-1)]/10">
-              {p.heroImage ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={p.heroImage}
-                  alt={p.heroAlt ?? p.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <span className="sr-only">{p.title}</span>
-              )}
-            </div>
-            <CardHeader>
-              <CardTitle className="font-display text-lg">
-                <Link
-                  href={`/blog/${p.slug}`}
-                  className="hover:text-[var(--accent-1)] focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent-1)] rounded-sm"
-                >
-                  {p.title}
-                </Link>
-              </CardTitle>
-              <p className="text-xs text-muted-foreground mt-1">
-                {new Date(p.date).toLocaleDateString()}
-              </p>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground line-clamp-3">
-                {p.excerpt}
-              </p>
-              <Link
-                href={`/blog/${p.slug}`}
-                aria-label={`Read more: ${p.title}`}
-                className="mt-4 inline-flex items-center text-sm font-medium text-[var(--accent-1)] hover:text-[var(--accent-1)]/80 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-1)] focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-              >
-                Read more →
-              </Link>
-            </CardContent>
-          </Card>
+      {/* Masonry-style layout using CSS columns */}
+      <div className="mt-6 columns-1 sm:columns-2 lg:columns-3 [column-fill:_balance] [column-gap:1.5rem]">
+        {pageItems.map((p, i) => (
+          <BlogCard key={p.slug} post={p} index={i} />
         ))}
       </div>
 
