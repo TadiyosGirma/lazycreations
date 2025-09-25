@@ -138,8 +138,8 @@ export function BlogGrid({ posts }: BlogGridProps) {
         ))}
       </div>
 
-      {/* Masonry-style layout using CSS columns */}
-      <div className="mt-6 columns-1 sm:columns-2 lg:columns-3 [column-fill:_balance] [column-gap:1.5rem]">
+      {/* Uniform grid with gaps */}
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pageItems.map((p, i) => (
           <BlogCard key={p.slug} post={p} index={i} />
         ))}
