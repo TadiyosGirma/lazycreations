@@ -7,7 +7,7 @@ export function MotionHero() {
     <section className="relative overflow-hidden py-24 md:py-32">
       <AnimatedGrid />
       <div className="container mx-auto px-6 md:px-8 relative">
-        <div className="max-w-3xl opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="max-w-3xl">
           <p className="text-sm tracking-widest text-[var(--accent-1)] uppercase mb-4">
             LAZY CREATIONS LLC
           </p>
