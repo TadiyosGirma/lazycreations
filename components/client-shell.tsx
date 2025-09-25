@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { PageTransition } from "@/components/page-transition";
 import { SiteFooter } from "@/components/site-footer";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 const SeoDefaultClient = dynamic(
   () =>
@@ -37,14 +38,17 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
 }
 
 function IdleMount({ children }: { children: React.ReactNode }) {
-  const [ready, setReady] = require("react").useState(false);
-  require("react").useEffect(() => {
-    if ("requestIdleCallback" in window) {
-      // @ts-expect-error requestIdleCallback exists in browsers
-      requestIdleCallback(() => setReady(true));
-    } else {
-      setTimeout(() => setReady(true), 100);
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const ric = (
+      window as unknown as { requestIdleCallback?: (cb: () => void) => number }
+    ).requestIdleCallback;
+    if (typeof ric === "function") {
+      ric(() => setReady(true));
+      return;
     }
+    const t = window.setTimeout(() => setReady(true), 100);
+    return () => window.clearTimeout(t);
   }, []);
   if (!ready) return null;
   return <>{children}</>;
