@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { listMdx } from "@/lib/mdx";
 import { BlogGrid } from "@/components/blog/blog-grid";
+import { CTA } from "@/components/marketing/cta";
 
 function BlogGridSkeleton() {
   return (
@@ -40,6 +41,10 @@ export default function Page() {
       <Suspense fallback={<BlogGridSkeleton />}>
         <BlogGrid posts={posts} />
       </Suspense>
+
+      <div className="mt-16">
+        <CTA />
+      </div>
     </div>
   );
 }
