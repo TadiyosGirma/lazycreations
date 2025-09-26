@@ -2,7 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const caseStudies = [];
+type CaseStudy = {
+  title: string;
+  problem: string;
+  solution: string;
+  results: string;
+  href: string;
+};
+
+const caseStudies: CaseStudy[] = [];
 
 export function CaseStudyTeasers() {
   return (
