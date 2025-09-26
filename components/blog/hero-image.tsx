@@ -15,6 +15,7 @@ export function HeroImage({ src, alt }: HeroImageProps) {
           fill
           sizes="100vw"
           className="object-cover"
+          style={{ objectPosition: "center 60%" }}
           priority
           unoptimized
         />

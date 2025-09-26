@@ -36,6 +36,7 @@ export default async function Page({
             fill
             sizes="100vw"
             className="object-cover opacity-80"
+            style={{ objectPosition: "center 60%" }}
             unoptimized
             priority={false}
           />
