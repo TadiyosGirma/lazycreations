@@ -7,7 +7,7 @@ type HeroImageProps = {
 
 export function HeroImage({ src, alt }: HeroImageProps) {
   return (
-    <div className="relative w-full max-h-[28rem] rounded-2xl overflow-hidden border border-border/50 mb-6">
+    <div className="relative w-full max-h-[28rem] rounded-2xl overflow-hidden mb-6">
       <div className="relative w-full h-[18rem] sm:h-[22rem] md:h-[28rem]">
         <Image
           src={src}

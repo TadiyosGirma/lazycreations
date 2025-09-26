@@ -28,7 +28,7 @@ export default async function Page({
       <MDXRemote source={content} options={{ parseFrontmatter: true }} />
 
       {/* Footer banner: subtle, short hero reprise */}
-      <div className="mt-12 rounded-xl overflow-hidden border border-border/50">
+      <div className="mt-12 rounded-xl overflow-hidden">
         <div className="relative w-full h-20 sm:h-24 md:h-28 lg:h-32">
           <Image
             src={fm.heroImage ?? "/blog-assets/placeholder.svg"}
