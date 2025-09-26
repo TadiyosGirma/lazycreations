@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { listMdx } from "@/lib/mdx";
 import { BlogGrid } from "@/components/blog/blog-grid";
+import { CTA } from "@/components/marketing/cta";
 
 function BlogGridSkeleton() {
   return (
@@ -31,15 +32,19 @@ export default function Page() {
   const posts = listMdx("blog");
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
-      <h1 className="sr-only">Blog</h1>
+      <h1 className="sr-only">AI Adoption Blog</h1>
       <SectionHeader
-        eyebrow="Blog"
+        eyebrow="AI Adoption Blog"
         title="Insights"
-        subtitle="Practical AI and software wins for SMBs."
+        subtitle="Practical AI adoption stories and playbooks for SMBs."
       />
       <Suspense fallback={<BlogGridSkeleton />}>
         <BlogGrid posts={posts} />
       </Suspense>
+
+      <div className="mt-16">
+        <CTA />
+      </div>
     </div>
   );
 }

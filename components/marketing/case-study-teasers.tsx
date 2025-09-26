@@ -2,22 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const caseStudies = [
-  {
-    title: "Logistics Email Triage",
-    problem: "Multi-location logistics company drowning in customer emails",
-    solution: "AI-powered email classification and routing system",
-    results: "60% fewer back-and-forth emails, 40% admin time saved",
-    href: "/case-studies/logistics-email-triage",
-  },
-  {
-    title: "Clinic Intake Efficiency",
-    problem: "Multi-location clinic struggling with manual patient intake",
-    solution: "Automated digital forms with EHR integration",
-    results: "40% reduction in intake time, 18% fewer no-shows",
-    href: "/case-studies/clinic-intake-efficiency",
-  },
-];
+type CaseStudy = {
+  title: string;
+  problem: string;
+  solution: string;
+  results: string;
+  href: string;
+};
+
+const caseStudies: CaseStudy[] = [];
 
 export function CaseStudyTeasers() {
   return (
