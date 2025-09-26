@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getMdxBySlug, listMdx } from "@/lib/mdx";
 import { HeroImage } from "@/components/blog/hero-image";
-import Link from "next/link";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   return listMdx("blog").map((p) => ({ slug: p.slug }));
@@ -27,21 +27,20 @@ export default async function Page({
       <h1 className="font-display text-4xl font-bold mb-4">{fm.title}</h1>
       <MDXRemote source={content} options={{ parseFrontmatter: true }} />
 
-      {fm.sourceUrl ? (
-        <div className="mt-8 p-4 rounded-lg border border-border/50 bg-surface/60">
-          <h2 className="text-base font-semibold mb-2">
-            Read the full case study
-          </h2>
-          <Link
-            href={fm.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--accent-1)] hover:underline"
-          >
-            {fm.sourceUrl}
-          </Link>
+      {/* Footer banner: subtle, short hero reprise */}
+      <div className="mt-12 rounded-xl overflow-hidden border border-border/50">
+        <div className="relative w-full h-20 sm:h-24 md:h-28 lg:h-32">
+          <Image
+            src={fm.heroImage ?? "/blog-assets/placeholder.svg"}
+            alt={(fm.heroAlt ?? fm.title) + " footer banner"}
+            fill
+            sizes="100vw"
+            className="object-cover opacity-80"
+            unoptimized
+            priority={false}
+          />
         </div>
-      ) : null}
+      </div>
 
       {/* Structured Data: Article */}
       <script
