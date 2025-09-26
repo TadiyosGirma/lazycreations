@@ -10,7 +10,6 @@ test("nav links work and contact form renders", async ({ page }) => {
     "/services",
     "/solutions",
     "/industries",
-    "/case-studies",
     "/blog",
     "/about",
     "/contact",

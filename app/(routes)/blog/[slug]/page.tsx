@@ -83,7 +83,7 @@ export async function generateMetadata({
   const fm = listMdx("blog").find((p) => p.slug === slug);
   if (!fm) return {};
   return {
-    title: fm.title,
+    title: `${fm.title} | AI Adoption Blog`,
     description: fm.excerpt,
     alternates: { canonical: `/blog/${fm.slug}` },
     openGraph: {

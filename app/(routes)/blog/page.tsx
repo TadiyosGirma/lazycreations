@@ -31,11 +31,11 @@ export default function Page() {
   const posts = listMdx("blog");
   return (
     <div className="container mx-auto px-6 md:px-8 py-16">
-      <h1 className="sr-only">Blog</h1>
+      <h1 className="sr-only">AI Adoption Blog</h1>
       <SectionHeader
-        eyebrow="Blog"
+        eyebrow="AI Adoption Blog"
         title="Insights"
-        subtitle="Practical AI and software wins for SMBs."
+        subtitle="Practical AI adoption stories and playbooks for SMBs."
       />
       <Suspense fallback={<BlogGridSkeleton />}>
         <BlogGrid posts={posts} />

@@ -7,12 +7,10 @@ export async function GET() {
     "/services",
     "/solutions",
     "/industries",
-    "/case-studies",
     "/blog",
     "/about",
     "/contact",
     ...listMdx("blog").map((p) => `/blog/${p.slug}`),
-    ...listMdx("case-studies").map((p) => `/case-studies/${p.slug}`),
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
