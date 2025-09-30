@@ -65,7 +65,7 @@ export default async function Page({
             },
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://lazycreations.ai/blog/${fm.slug}`,
+              "@id": `https://lazycreations.ai/ai-adoption-blog/${fm.slug}`,
             },
           }),
         }}
@@ -85,7 +85,7 @@ export async function generateMetadata({
   return {
     title: `${fm.title} | AI Adoption Blog`,
     description: fm.excerpt,
-    alternates: { canonical: `/blog/${fm.slug}` },
+    alternates: { canonical: `/ai-adoption-blog/${fm.slug}` },
     openGraph: {
       type: "article",
       publishedTime: fm.date,

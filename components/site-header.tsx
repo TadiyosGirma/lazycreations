@@ -18,10 +18,11 @@ import {
 import { Menu } from "lucide-react";
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
-  { href: "/blog", label: "AI Adoption Blog" },
+  { href: "/ai-adoption-blog", label: "AI Adoption Blog" },
   { href: "/about", label: "About" },
 ];
 

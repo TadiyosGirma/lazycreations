@@ -22,7 +22,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
       }
     >
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/ai-adoption-blog/${post.slug}`}
         className="block focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent-1)]"
       >
         <div className="relative w-full aspect-[16/9]">
