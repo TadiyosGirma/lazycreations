@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/case-studies", destination: "/blog", permanent: true },
       { source: "/case-studies/:slug", destination: "/blog", permanent: true },
+      { source: "/blog", destination: "/ai-adoption-blog", permanent: true },
+      {
+        source: "/blog/:slug",
+        destination: "/ai-adoption-blog/:slug",
+        permanent: true,
+      },
     ];
   },
   experimental: {

@@ -10,7 +10,7 @@ test("nav links work and contact form renders", async ({ page }) => {
     "/services",
     "/solutions",
     "/industries",
-    "/blog",
+    "/ai-adoption-blog",
     "/about",
     "/contact",
   ];
