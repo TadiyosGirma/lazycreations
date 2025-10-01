@@ -16,24 +16,31 @@ sourceUrl: https://www.nist.gov/blogs/manufacturing-innovation-blog/nist-explore
 
 ## 📊 Highlights
 
-- Discusses approaches and benefits of AI‑enhanced process monitoring.
-- Shows how earlier detection and predictive alerts reduce waste and downtime.
+- Discusses approaches and benefits of AI‑enhanced process monitoring: anomaly detection, predictive maintenance, and closed‑loop control.
+- Earlier detection and predictive alerts reduce waste and downtime, improving first‑pass yield and OEE without major equipment changes.
+- Edge inference on low‑cost devices allows continuous sensing even with limited connectivity; models can be retrained from labeled exceptions.
+- Human‑in‑the‑loop review is essential early on—operator feedback improves alarm precision and shortens the time to corrective action.
+- Visual dashboards placed at cells and lines help shift leaders coordinate responses and capture learnings for the next shift.
 
 ## 🗣 Case study anecdote
 
-A food manufacturer added anomaly detection to its packaging line. Operators received early alerts and adjusted settings before defects cascaded, improving uptime.
+At a regional food manufacturer, false rejects and intermittent jams on the packaging line were eroding margins. The team added vibration and vision sensing with a lightweight anomaly model. During the first month, operators treated alerts as "check and verify" rather than automatic stops. As labeled examples accumulated, alarm precision improved and the number of nuisance alerts fell. Crews learned to tweak speed and sealing temperature minutes earlier than before, which prevented quality drift from cascading. By the end of the quarter, first‑pass yield rose and unplanned downtime windows were shorter and less frequent.
 
 ## 🛠 Guidance for SMBs
 
-- Start with a monitoring MVP and measure false positives, scrap, and downtime.
-- Keep humans‑in‑the‑loop initially; automate only after alarm precision is proven.
-- Publish a small dashboard of quality/uptime signals to align shifts.
+- Start with a monitoring MVP around one bottleneck asset. Track false positives, scrap, mean time between failure (MTBF), and downtime minutes.
+- Keep humans‑in‑the‑loop while models learn; set a target precision/recall before enabling automatic stops or adjustments.
+- Create a short SOP for alert handling (acknowledge → verify → correct → record). Capture notes at shift handoff so improvements persist.
+- Build a small dashboard of quality/uptime signals and review weekly with operators; add examples to the training set continuously.
 
 ## 📈 Lessons & metrics
 
-- Precision and recall for alerts, scrap rate, and downtime are the core metrics.
-- Visualizing trends helps operators intervene faster.
+- Precision and recall for alerts, scrap rate, downtime minutes, and first‑pass yield are the core metrics.
+- Time‑to‑intervention (from alert to correction) is a leading indicator of eventual yield improvement.
+- Operator engagement—measured by labeled events and SOP adherence—correlates with faster model learning and fewer repeats.
 
 ## 🔗 Learn more
 
 Read the full article: <a href="https://www.nist.gov/blogs/manufacturing-innovation-blog/nist-explores-ai-enhanced-monitoring-manufacturing-processes" target="_blank" rel="noopener noreferrer">NIST — AI‑Enhanced Monitoring</a>
+
+Looking for help to implement similar results? <a href="/services">See our services</a>.
