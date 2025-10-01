@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
 import { SectionHeader } from "@/components/section-header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CTA } from "@/components/marketing/cta";
-import {
-  CheckCircle,
-  Users,
-  Target,
-  Zap,
-  Shield,
-  BarChart3,
-} from "lucide-react";
+// import { CheckCircle, Users, Target, Zap, Shield, BarChart3 } from "lucide-react";
 
 export default function Page() {
   return (
@@ -46,240 +39,92 @@ export default function Page() {
               tools that help larger companies thrive.
             </p>
             <p className="text-muted-foreground">
-              Today, we&apos;ve helped dozens of SMBs save thousands of hours
-              and hundreds of thousands of dollars by implementing practical,
+              We founded Lazy Creations to help SMBs save thousands of hours and
+              hundreds of thousands of dollars by implementing practical,
               ROI-focused automation and AI solutions. We&apos;re not just
               consultants—we&apos;re your technology partners in growth.
             </p>
           </div>
         </div>
 
-        {/* Mission */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card className="neon-border bg-surface/60">
-            <CardHeader>
-              <CardTitle className="font-display text-xl flex items-center gap-2">
-                <Target className="h-5 w-5 text-[var(--accent-1)]" />
-                Our Mission
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                To help small and mid-sized businesses compete with larger
-                players by leveraging modern software and AI. We believe
-                technology should be an equalizer, not a barrier to success.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="neon-border bg-surface/60">
-            <CardHeader>
-              <CardTitle className="font-display text-xl flex items-center gap-2">
-                <Users className="h-5 w-5 text-[var(--accent-2)]" />
-                Our Vision
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                A world where every SMB has access to enterprise-grade
-                technology solutions that deliver measurable value, not just
-                impressive demos.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Core Values */}
+        {/* Mission · Values */}
         <div className="glass rounded-2xl p-8">
-          <h2 className="font-display text-2xl mb-6">Our Core Values</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-[var(--accent-1)]/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="h-6 w-6 text-[var(--accent-1)]" />
-              </div>
-              <h3 className="font-medium mb-2">Craft</h3>
-              <p className="text-sm text-muted-foreground">
-                We build solutions that work reliably, not just impressive
-                demos. Every line of code serves a purpose.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-[var(--accent-2)]/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <BarChart3 className="h-6 w-6 text-[var(--accent-2)]" />
-              </div>
-              <h3 className="font-medium mb-2">Clarity</h3>
-              <p className="text-sm text-muted-foreground">
-                We communicate in plain English, not tech jargon. You&apos;ll
-                always know what we&apos;re building and why.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-400/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Users className="h-6 w-6 text-green-400" />
-              </div>
-              <h3 className="font-medium mb-2">Care</h3>
-              <p className="text-sm text-muted-foreground">
-                We treat your business like our own. Your success is our
-                success, and we&apos;re invested in your long-term growth.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-400/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Zap className="h-6 w-6 text-blue-400" />
-              </div>
-              <h3 className="font-medium mb-2">Compounding</h3>
-              <p className="text-sm text-muted-foreground">
-                We build solutions that get better over time. Small improvements
-                today create massive value tomorrow.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Differentiators */}
-        <div className="glass rounded-2xl p-8">
-          <h2 className="font-display text-2xl mb-6">
-            What Makes Us Different
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-medium text-lg mb-4 flex items-center gap-2">
-                <Users className="h-5 w-5 text-[var(--accent-1)]" />
-                Engineer-Led Conversations
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                No sales fluff or technical hand-waving. When you talk to us,
-                you&apos;re talking directly to the people who will build your
-                solution. We ask the right questions, give honest answers, and
-                focus on what actually works.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-lg mb-4 flex items-center gap-2">
-                <Target className="h-5 w-5 text-[var(--accent-2)]" />
-                ROI-First Scoping
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Every project starts with a clear understanding of the business
-                value. We won&apos;t build something just because it&apos;s
-                cool—we build what will save you time, reduce errors, and
-                increase revenue.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-lg mb-4 flex items-center gap-2">
-                <Zap className="h-5 w-5 text-green-400" />
-                Bias for Simplicity
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                The best solution is often the simplest one. We avoid
-                over-engineering and focus on elegant solutions that your team
-                can actually use and maintain.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-lg mb-4 flex items-center gap-2">
-                <Shield className="h-5 w-5 text-blue-400" />
-                Accessible by Default
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Every solution we build follows accessibility best practices
-                from day one. We believe technology should work for everyone,
-                regardless of ability or technical comfort level.
-              </p>
-            </div>
-          </div>
+          <h2 className="font-display text-2xl mb-6">Mission · Values</h2>
+          <p className="text-muted-foreground mb-4">
+            We empower SMBs with AI and modern software to compete and grow. We
+            build practical systems that save time, reduce errors, and unlock
+            better decisions.
+          </p>
+          <ul className="grid md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+            <li>
+              <strong className="text-foreground">Craft</strong> — reliable,
+              maintainable systems over flashy demos.
+            </li>
+            <li>
+              <strong className="text-foreground">Clarity</strong> — plain
+              language, measurable outcomes, no jargon.
+            </li>
+            <li>
+              <strong className="text-foreground">Care</strong> — treat client
+              problems like our own.
+            </li>
+            <li>
+              <strong className="text-foreground">Compounding</strong> — small
+              wins that stack into durable advantage.
+            </li>
+          </ul>
+          <p className="text-muted-foreground mt-4">
+            Our vision: every SMB wields enterprise-grade capability—without the
+            enterprise complexity or cost.
+          </p>
         </div>
 
         {/* Team */}
         <div className="glass rounded-2xl p-8">
           <h2 className="font-display text-2xl mb-6">Meet the Team</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <p className="text-muted-foreground mb-6">
+            Lazy Creations is led by a small but dedicated founding team
+            combining deep technical expertise with entrepreneurial drive.
+          </p>
+          <div className="space-y-6">
             <div>
-              <h3 className="font-medium text-lg mb-2">Leadership Team</h3>
-              <p className="text-muted-foreground mb-4">
-                Our leadership team combines decades of experience in software
-                engineering, business operations, and SMB consulting. We&apos;ve
-                worked at startups, scale-ups, and enterprise companies, but our
-                hearts are with the small businesses that drive our economy.
+              <h3 className="font-medium text-lg mb-2">
+                Engineering & Product
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Our team brings nearly a decade of senior engineering experience
+                across global organizations including Bank of America, Home
+                Depot, and Paychex. The team members led enterprise-scale system
+                upgrades, designed dashboards that streamline operations for
+                Fortune 500 companies, and architected microservices that power
+                mission-critical applications.
               </p>
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-medium">Technical Leadership</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Former senior engineers from companies like Stripe, Shopify,
-                    and Microsoft, with deep expertise in AI, automation, and
-                    modern web technologies.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-medium">Business Strategy</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Former SMB owners and consultants who understand the unique
-                    challenges of running a small business in today&apos;s
-                    competitive landscape.
-                  </p>
-                </div>
-              </div>
             </div>
             <div>
-              <h3 className="font-medium text-lg mb-2">Our Approach</h3>
-              <p className="text-muted-foreground mb-4">
-                We&apos;re not a traditional agency or consulting firm.
-                We&apos;re a team of builders who happen to love working with
-                SMBs. Every project is a partnership, and every client becomes
-                part of our extended family.
+              <h3 className="font-medium text-lg mb-2">AI & Innovation</h3>
+              <p className="text-sm text-muted-foreground">
+                We have hands-on expertise training AI models, building
+                generative AI applications, and developing AI-powered platforms.
+                As the creator of <strong>UnbiasedAiReview.com</strong>, we’ve
+                proven our ability to launch and scale AI-driven products that
+                blend advanced engineering with consumer insight.
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span>Direct access to senior team members</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span>Transparent communication and regular updates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span>Ongoing support and optimization</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span>Flexible engagement models that fit your budget</span>
-                </li>
-              </ul>
+            </div>
+            <div>
+              <h3 className="font-medium text-lg mb-2">Leadership & Vision</h3>
+              <p className="text-sm text-muted-foreground">
+                With graduate degrees in Computer Science and Software
+                Engineering and a track record of driving impact across both
+                U.S. and international projects, we unite academic strength with
+                practical, results-oriented leadership.
+              </p>
             </div>
           </div>
-        </div>
-
-        {/* Measurable Outcomes */}
-        <div className="glass rounded-2xl p-8">
-          <h2 className="font-display text-2xl mb-6">Our Track Record</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[var(--accent-1)] mb-2">
-                50+
-              </div>
-              <div className="text-sm text-muted-foreground">SMBs Helped</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[var(--accent-2)] mb-2">
-                2,000+
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Hours Saved Weekly
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-400 mb-2">95%</div>
-              <div className="text-sm text-muted-foreground">
-                Client Retention Rate
-              </div>
-            </div>
-          </div>
-          <p className="text-center text-muted-foreground mt-6">
-            We measure our success by your success. When you save time, reduce
-            errors, and grow revenue, we&apos;ve done our job.
+          <p className="text-muted-foreground mt-6">
+            We may be a lean team, but our collective skills span software
+            engineering, AI adoption, product innovation, and strategy. Our
+            focus is helping small and mid-sized businesses unlock the same
+            powerful tools and approaches used by the world’s largest firms.
           </p>
         </div>
       </div>
