@@ -1,5 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Cpu, Bot, BarChart3, Workflow } from "lucide-react";
+import {
+  Cpu,
+  Bot,
+  BarChart3,
+  Workflow,
+  Compass,
+  GraduationCap,
+} from "lucide-react";
 
 const features = [
   {
@@ -22,6 +29,16 @@ const features = [
     title: "Content Assistant",
     body: "Streamlines content creation from brief to publication with AI-powered writing, brand compliance checks, and approval workflows. Typical results: 40% faster content production, consistent brand voice, and 60% reduction in revision cycles. Includes templates, style guides, and multi-channel publishing.",
   },
+  {
+    icon: Compass,
+    title: "AI Readiness & Roadmap",
+    body: "Assess processes, data, and tooling to identify high-ROI AI use cases. Deliver a phased adoption plan with risk controls, stack recommendations, and a 90-day execution map. Typical results: clarity on 3–5 pilots, 2-week assessment with quick wins.",
+  },
+  {
+    icon: GraduationCap,
+    title: "AI Skills Training & Workshops",
+    body: "Hands-on enablement for teams: prompt engineering, workflow design, QA guardrails, and ethical usage. Typical results: faster adoption, consistent outputs, and 5–10 hours saved weekly across functions.",
+  },
 ];
 
 export function FeatureBlocks() {
@@ -30,9 +47,15 @@ export function FeatureBlocks() {
       {features.map((f) => (
         <Card key={f.title} className="neon-border bg-surface/60">
           <CardHeader>
-            <div className="flex items-center gap-3">
-              <f.icon className="text-[var(--accent-2)]" />
-              <CardTitle className="font-display">{f.title}</CardTitle>
+            <div className="flex items-center gap-4">
+              <f.icon
+                className="h-12 w-12 text-cyan-400"
+                style={{ filter: "drop-shadow(0 0 10px rgba(0,229,255,0.45))" }}
+                aria-hidden
+              />
+              <CardTitle className="font-display text-xl md:text-2xl">
+                {f.title}
+              </CardTitle>
             </div>
           </CardHeader>
           <CardContent>
