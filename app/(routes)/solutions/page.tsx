@@ -12,6 +12,8 @@ import {
   CheckCircle,
   Clock,
   Users,
+  Compass,
+  GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -35,7 +37,7 @@ const solutions = [
       "60% less back-and-forth emails, 28% reduction in average handle time, 12% increase in customer satisfaction",
     prerequisites:
       "Access to your helpdesk/CRM system, sample of past tickets for training",
-    cta: "Schedule a demo",
+    cta: "Schedule a consultation",
   },
   {
     icon: Workflow,
@@ -56,7 +58,7 @@ const solutions = [
       "30% faster sales cycles, eliminates manual data entry, 40% reduction in admin time, 25% increase in lead conversion",
     prerequisites:
       "CRM access (HubSpot, Salesforce, or Pipedrive), QuickBooks or accounting system integration",
-    cta: "Get a proposal",
+    cta: "Schedule a consultation",
   },
   {
     icon: BarChart3,
@@ -77,7 +79,7 @@ const solutions = [
       "50% faster reporting, data-driven decisions, 25% improvement in goal tracking, 2 hours saved per week on manual reporting",
     prerequisites:
       "Access to your data sources (CRM, accounting, etc.), clear definition of key metrics to track",
-    cta: "Request a demo",
+    cta: "Schedule a consultation",
   },
   {
     icon: Cpu,
@@ -98,7 +100,49 @@ const solutions = [
       "40% faster content production, consistent brand voice, 60% reduction in revision cycles, 3x more content output",
     prerequisites:
       "Brand guidelines and style preferences, sample content for training, approval workflow requirements",
-    cta: "See it in action",
+    cta: "Schedule a consultation",
+  },
+  {
+    icon: Compass,
+    title: "AI Readiness & Roadmap",
+    painPoint:
+      "You see opportunities for AI but lack a clear plan: where to start, how to measure impact, and how to manage risks.",
+    description:
+      "A structured 2-week assessment to identify high-ROI AI use cases, evaluate data/process readiness, and deliver a phased adoption plan with risk controls and stack recommendations.",
+    includes: [
+      "Stakeholder interviews and workflow mapping",
+      "Data readiness and architecture review",
+      "Use-case scoring (ROI, feasibility, risk)",
+      "90-day pilot roadmap with owners and milestones",
+      "Risk, privacy, and QA guardrails",
+    ],
+    timeline: "2 weeks",
+    results:
+      "Clarity on 3–5 pilots, a 90-day execution plan, defined KPIs and guardrails, and executive alignment on priorities",
+    prerequisites:
+      "Access to process docs, sample data (read-only), and 3–5 stakeholder interviews",
+    cta: "Schedule a consultation",
+  },
+  {
+    icon: GraduationCap,
+    title: "AI Skills Training & Workshops",
+    painPoint:
+      "Teams are experimenting with AI but lack consistent skills, standards, and guardrails—leading to mixed results and rework.",
+    description:
+      "Hands-on enablement for your team: prompt engineering, workflow design, QA checklists, and ethical usage. Tailored sessions by role with live exercises and take-home playbooks.",
+    includes: [
+      "Role-based training (marketing, support, ops)",
+      "Prompt patterns and template library",
+      "Two-step QA and fact-check guardrails",
+      "Live workflow labs using your tools",
+      "Playbooks and SOPs for ongoing use",
+    ],
+    timeline: "1–4 weeks",
+    results:
+      "Faster adoption, consistent outputs, and 5–10 hours saved weekly across functions with measurable quality improvements",
+    prerequisites:
+      "Team availability for sessions, access to tools (read-only), and 2–3 sample workflows",
+    cta: "Schedule a consultation",
   },
 ];
 
