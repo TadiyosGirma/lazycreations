@@ -190,11 +190,19 @@ export default function Page() {
 
               <div className="p-4 bg-[var(--accent-1)]/10 rounded-lg border border-[var(--accent-1)]/20">
                 <h4 className="font-medium text-[var(--accent-1)] mb-2">
-                  Real Example:
+                  Expected Outcome:
                 </h4>
-                <p className="text-sm text-muted-foreground">
-                  {industry.caseStudy}
+                <p className="text-sm text-muted-foreground mb-2">
+                  Most teams see measurable improvements like:
                 </p>
+                <ul className="space-y-1 text-sm text-muted-foreground">
+                  {industry.kpis.map((kpi, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-[var(--accent-1)] mt-1">•</span>
+                      {kpi}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="flex justify-end">
@@ -203,7 +211,7 @@ export default function Page() {
                     href="/contact"
                     data-cta={`industry-${industry.name.toLowerCase().replace(/\s+/g, "-")}`}
                   >
-                    Get industry-specific case studies
+                    Get industry-specific consultation
                   </Link>
                 </Button>
               </div>
