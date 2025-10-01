@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import type { MDXComponents } from "mdx/types";
 import { getMdxBySlug, listMdx } from "@/lib/mdx";
 import { HeroImage } from "@/components/blog/hero-image";
 import Image from "next/image";
@@ -26,8 +27,10 @@ export default async function Page({
   function extractText(node: React.ReactNode): string {
     if (typeof node === "string") return node;
     if (Array.isArray(node)) return node.map(extractText).join("");
-    if (React.isValidElement(node))
-      return extractText((node.props as any)?.children);
+    if (React.isValidElement(node)) {
+      const children = (node.props as { children?: React.ReactNode }).children;
+      return extractText(children ?? "");
+    }
     return "";
   }
 
@@ -81,7 +84,7 @@ export default async function Page({
     );
   }
 
-  const mdxComponents = { h2: H2WithIcon };
+  const mdxComponents: MDXComponents = { h2: H2WithIcon };
   return (
     <div className="container mx-auto px-6 md:px-8 py-16 prose prose-invert">
       <HeroImage
@@ -92,7 +95,7 @@ export default async function Page({
       <MDXRemote
         source={content}
         options={{ parseFrontmatter: true }}
-        components={mdxComponents as any}
+        components={mdxComponents}
       />
 
       {/* Footer banner: subtle, short hero reprise */}
