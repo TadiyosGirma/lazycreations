@@ -21,8 +21,7 @@ export default async function Page({
   if (!fm) return notFound();
   const { content } = getMdxBySlug("blog", slug);
 
-  // Demo: inject section icons only for a single post so you can review first
-  const demoSlug = "uschamber-empowering-small-business-technology-impact";
+  // Inject section icons for all posts
 
   function extractText(node: React.ReactNode): string {
     if (typeof node === "string") return node;
@@ -82,7 +81,7 @@ export default async function Page({
     );
   }
 
-  const mdxComponents = slug === demoSlug ? { h2: H2WithIcon } : undefined;
+  const mdxComponents = { h2: H2WithIcon };
   return (
     <div className="container mx-auto px-6 md:px-8 py-16 prose prose-invert">
       <HeroImage
