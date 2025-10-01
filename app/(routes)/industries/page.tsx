@@ -188,22 +188,13 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="p-4 bg-[var(--accent-1)]/10 rounded-lg border border-[var(--accent-1)]/20">
-                <h4 className="font-medium text-[var(--accent-1)] mb-2">
-                  Real Example:
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  {industry.caseStudy}
-                </p>
-              </div>
-
               <div className="flex justify-end">
                 <Button asChild>
                   <Link
                     href="/contact"
                     data-cta={`industry-${industry.name.toLowerCase().replace(/\s+/g, "-")}`}
                   >
-                    Get industry-specific case studies
+                    Get industry-specific consultation
                   </Link>
                 </Button>
               </div>
