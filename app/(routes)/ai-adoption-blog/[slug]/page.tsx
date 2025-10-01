@@ -59,9 +59,15 @@ export default async function Page({
     return null;
   }
 
+  function stripHeadingEmoji(text: string): string {
+    // Remove a single leading emoji we used in headings across posts
+    return text.replace(/^[\s]*(?:📊|🗣|🛠|📈|🔗)\s*/u, "");
+  }
+
   function H2WithIcon(props: React.HTMLAttributes<HTMLHeadingElement>) {
-    const title = extractText(props.children ?? "");
-    const icon = <SectionIcon title={title} />;
+    const rawTitle = extractText(props.children ?? "");
+    const cleanTitle = stripHeadingEmoji(rawTitle);
+    const icon = <SectionIcon title={cleanTitle} />;
     const className = [
       "mt-10 mb-4 flex items-center gap-3",
       props.className ?? "",
@@ -71,7 +77,7 @@ export default async function Page({
     return (
       <h2 {...props} className={className}>
         {icon}
-        <span>{props.children}</span>
+        <span>{cleanTitle}</span>
       </h2>
     );
   }
