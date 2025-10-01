@@ -9,6 +9,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from "@/components/ui/select";
 
 const schema = z.object({
   name: z.string().min(1),
@@ -24,9 +32,10 @@ type FormValues = z.infer<typeof schema>;
 
 export default function Page() {
   const [busy, setBusy] = useState(false);
-  const { register, handleSubmit, reset, formState } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-  });
+  const { register, handleSubmit, reset, formState, setValue, watch } =
+    useForm<FormValues>({
+      resolver: zodResolver(schema),
+    });
 
   const lastSentRef = useRef(0);
   const onSubmit = async (values: FormValues) => {
@@ -68,34 +77,109 @@ export default function Page() {
         className="mt-8 grid md:grid-cols-2 gap-6"
       >
         <div>
-          <Label htmlFor="name">Name*</Label>
-          <Input id="name" {...register("name")} />
+          <Label htmlFor="name" className="mb-2">
+            Name*
+          </Label>
+          <Input
+            id="name"
+            className={cn(
+              (watch("name") ?? "").trim() !== "" &&
+                "dark:bg-[#e8eef7] bg-[#e8eef7] text-slate-900",
+            )}
+            {...register("name")}
+          />
           {formState.errors.name && (
             <p className="text-error text-sm mt-1">Required</p>
           )}
         </div>
         <div>
-          <Label htmlFor="company">Company</Label>
-          <Input id="company" {...register("company")} />
+          <Label htmlFor="company" className="mb-2">
+            Company
+          </Label>
+          <Input
+            id="company"
+            className={cn(
+              (watch("company") ?? "").trim() !== "" &&
+                "dark:bg-[#e8eef7] bg-[#e8eef7] text-slate-900",
+            )}
+            {...register("company")}
+          />
         </div>
         <div>
-          <Label htmlFor="email">Email*</Label>
-          <Input id="email" type="email" {...register("email")} />
+          <Label htmlFor="email" className="mb-2">
+            Email*
+          </Label>
+          <Input
+            id="email"
+            type="email"
+            className={cn(
+              (watch("email") ?? "").trim() !== "" &&
+                "dark:bg-[#e8eef7] bg-[#e8eef7] text-slate-900",
+            )}
+            {...register("email")}
+          />
           {formState.errors.email && (
             <p className="text-error text-sm mt-1">Valid email required</p>
           )}
         </div>
         <div>
-          <Label htmlFor="phone">Phone</Label>
-          <Input id="phone" {...register("phone")} />
+          <Label htmlFor="phone" className="mb-2">
+            Phone
+          </Label>
+          <Input
+            id="phone"
+            className={cn(
+              (watch("phone") ?? "").trim() !== "" &&
+                "dark:bg-[#e8eef7] bg-[#e8eef7] text-slate-900",
+            )}
+            {...register("phone")}
+          />
         </div>
         <div className="md:col-span-2">
-          <Label htmlFor="budget">Budget</Label>
-          <Input id="budget" placeholder="$5k–$25k" {...register("budget")} />
+          <Label htmlFor="budget" className="mb-2">
+            Budget
+          </Label>
+          <Select
+            value={watch("budget") || undefined}
+            onValueChange={(v) =>
+              setValue("budget", v, { shouldValidate: false })
+            }
+          >
+            <SelectTrigger
+              aria-label="Budget"
+              role="combobox"
+              className={cn(
+                "border-input",
+                (watch("budget") ?? "") !== ""
+                  ? "dark:bg-[#e8eef7] bg-[#e8eef7] text-slate-900"
+                  : "dark:bg-input/30",
+              )}
+            >
+              <SelectValue placeholder="Select a budget range" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="under-5k">Under $5k</SelectItem>
+              <SelectItem value="5k-25k">$5k–$25k</SelectItem>
+              <SelectItem value="25k-50k">$25k–$50k</SelectItem>
+              <SelectItem value="50k-100k">$50k–$100k</SelectItem>
+              <SelectItem value="100k-plus">$100k+</SelectItem>
+            </SelectContent>
+          </Select>
+          <input type="hidden" {...register("budget")} />
         </div>
         <div className="md:col-span-2">
-          <Label htmlFor="message">Message*</Label>
-          <Textarea id="message" rows={6} {...register("message")} />
+          <Label htmlFor="message" className="mb-2">
+            Message*
+          </Label>
+          <Textarea
+            id="message"
+            rows={6}
+            className={cn(
+              (watch("message") ?? "").trim() !== "" &&
+                "dark:bg-[#e8eef7] bg-[#e8eef7] text-slate-900",
+            )}
+            {...register("message")}
+          />
           {formState.errors.message && (
             <p className="text-error text-sm mt-1">Required</p>
           )}
