@@ -24,7 +24,7 @@ const schema = z.object({
   email: z.string().email(),
   phone: z.string().optional(),
   budget: z.string().optional(),
-  message: z.string().min(1),
+  message: z.string().min(10),
   website: z.string().optional(), // honeypot
 });
 
@@ -45,20 +45,25 @@ export default function Page() {
     if (values.website) return; // bot
     try {
       setBusy(true);
-      const endpoint =
-        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ??
-        "https://formspree.io/f/xayrknqp";
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(values),
       });
-      if (!res.ok) throw new Error("Request failed");
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        const msg = data?.error || "Send failed. Please try again.";
+        throw new Error(msg);
+      }
       toast.success("Thanks — we'll reply shortly.");
       lastSentRef.current = now;
       reset();
-    } catch {
-      toast.error("Couldn't send. Use mailto:info@lazycreations.ai");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Send failed.";
+      toast.error(msg + " If the issue persists, email admin@lazycreations.ai");
     } finally {
       setBusy(false);
     }
@@ -181,7 +186,9 @@ export default function Page() {
             {...register("message")}
           />
           {formState.errors.message && (
-            <p className="text-error text-sm mt-1">Required</p>
+            <p className="text-error text-sm mt-1">
+              Please enter at least 10 characters
+            </p>
           )}
         </div>
         <input
@@ -196,7 +203,7 @@ export default function Page() {
             {busy ? "Sending…" : "Send"}
           </Button>
           <Button variant="outline" asChild>
-            <a href="mailto:info@lazycreations.ai">Or email us</a>
+            <a href="mailto:admin@lazycreations.ai">Or email us</a>
           </Button>
         </div>
       </form>
