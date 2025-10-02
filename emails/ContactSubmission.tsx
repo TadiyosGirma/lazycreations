@@ -8,6 +8,7 @@ type Props = {
   budget?: string;
   message: string;
   origin?: string;
+  logoUrl?: string;
 };
 
 const accent = "#00E5FF";
@@ -20,8 +21,19 @@ export default function ContactSubmissionEmail({
   budget,
   message,
   origin = "https://lazycreations.ai",
+  logoUrl,
 }: Props) {
-  const logoSrc = `${origin.replace(/\/$/, "")}/logo.png`;
+  const computedOrigin = origin.replace(/\/$/, "");
+  const isLocal = /localhost|127\.0\.0\.1|0\.0\.0\.0|192\.168\./.test(
+    computedOrigin,
+  );
+  const fallbackRemote = "https://lazycreations.ai/logo.png";
+  const logoSrc =
+    logoUrl && logoUrl.trim() !== ""
+      ? logoUrl
+      : isLocal
+        ? fallbackRemote
+        : `${computedOrigin}/logo.png`;
   return (
     <div
       style={{

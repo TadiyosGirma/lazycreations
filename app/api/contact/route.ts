@@ -108,17 +108,17 @@ export async function POST(req: Request) {
     lastSubmissionByIp.set(ip, now);
 
     const subject = `New Contact Form — ${data.name}`;
-    const html = render(
-      ContactSubmissionEmail({
-        name: data.name,
-        email: data.email,
-        company: data.company,
-        phone: data.phone,
-        budget: data.budget,
-        message: data.message,
-        origin,
-      }),
-    );
+    const reactEmail = ContactSubmissionEmail({
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      phone: data.phone,
+      budget: data.budget,
+      message: data.message,
+      origin,
+      logoUrl: process.env.EMAIL_LOGO_URL,
+    });
+    const html = render(reactEmail);
     const text = buildEmailText(data, origin);
 
     const emailFrom = process.env.EMAIL_FROM ?? "no-reply@lazycreations.ai";
@@ -131,7 +131,7 @@ export async function POST(req: Request) {
         to: [emailTo],
         replyTo: data.email,
         subject,
-        html,
+        react: reactEmail,
         text,
       });
       if (error) {
