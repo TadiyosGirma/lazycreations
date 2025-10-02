@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { headers as nextHeaders } from "next/headers";
 import { z } from "zod";
 import { Resend } from "resend";
+import { render } from "@react-email/render";
+import ContactSubmissionEmail from "@/emails/ContactSubmission";
 import sgMail from "@sendgrid/mail";
 
 const BodySchema = z.object({
@@ -106,7 +108,17 @@ export async function POST(req: Request) {
     lastSubmissionByIp.set(ip, now);
 
     const subject = `New Contact Form — ${data.name}`;
-    const html = buildEmailHtml(data, origin);
+    const html = render(
+      ContactSubmissionEmail({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        budget: data.budget,
+        message: data.message,
+        origin,
+      }),
+    );
     const text = buildEmailText(data, origin);
 
     const emailFrom = process.env.EMAIL_FROM ?? "no-reply@lazycreations.ai";
@@ -115,7 +127,7 @@ export async function POST(req: Request) {
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const { error } = await resend.emails.send({
-        from: emailFrom,
+        from: `Lazy Creations Contact` + " <" + emailFrom + ">",
         to: [emailTo],
         replyTo: data.email,
         subject,
