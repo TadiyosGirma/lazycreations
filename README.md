@@ -16,12 +16,26 @@ Stack: Next.js (App Router, TS), Tailwind v4, shadcn/ui, Framer Motion, MDX, nex
 
 ## Contact form
 
-- Default: Formspree POST to placeholder endpoint in `app/(routes)/contact/page.tsx`
-- Honeypot field `website`, debounce and toasts included
-- Fallback: `mailto:info@lazycreations.ai`
-- Env: set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` to your Formspree endpoint
-- Optional API: `app/api/contact/route.ts` with Resend (disabled by default)
-  - Set `RESEND_API_KEY` and switch the form `fetch` to `/api/contact`
+- Server-side email via Resend (primary) with optional SendGrid fallback.
+- Honeypot field `website`, debounce, and strict success handling.
+- Success toast only shown when provider responds 200/201.
+- Configure env vars:
+  - `RESEND_API_KEY`
+  - `EMAIL_FROM` (e.g., no-reply@lazycreations.ai)
+  - `EMAIL_TO` (e.g., admin@lazycreations.ai)
+  - Optional SendGrid: `SENDGRID_API_KEY`, `SENDGRID_FROM`, `SENDGRID_TO`
+
+### Deliverability
+
+- SPF: `v=spf1 include:_spf.resend.com ~all` (or SendGrid: include:sendgrid.net)
+- DKIM: Add CNAMEs provided by the provider
+- DMARC: `v=DMARC1; p=none; rua=mailto:dmarc@lazycreations.ai`
+- Verify your domain in Resend (and SendGrid if used)
+- Use `EMAIL_FROM` on the verified domain only
+
+### Health
+
+- Dev-only health check: `GET /api/health/email` returns whether required envs are present
 
 ## SEO
 

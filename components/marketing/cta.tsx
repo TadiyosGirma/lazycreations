@@ -18,7 +18,7 @@ export function CTA({ className = "" }: { className?: string }) {
           </Link>
         </Button>
         <Button asChild variant="outline" size="lg">
-          <Link href="mailto:info@lazycreations.ai" data-cta="cta-mailto">
+          <Link href="mailto:admin@lazycreations.ai" data-cta="cta-mailto">
             Or email us
           </Link>
         </Button>
