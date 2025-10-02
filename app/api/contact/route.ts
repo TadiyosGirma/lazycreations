@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { headers as nextHeaders } from "next/headers";
 import { z } from "zod";
 import { Resend } from "resend";
-import { render } from "@react-email/render";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import ContactSubmissionEmail from "@/emails/ContactSubmission";
 import sgMail from "@sendgrid/mail";
 
@@ -118,7 +119,9 @@ export async function POST(req: Request) {
       origin,
       logoUrl: process.env.EMAIL_LOGO_URL,
     });
-    const html = render(reactEmail);
+    const html = renderToStaticMarkup(
+      React.createElement(React.Fragment, null, reactEmail),
+    );
     const text = buildEmailText(data, origin);
 
     const emailFrom = process.env.EMAIL_FROM ?? "no-reply@lazycreations.ai";
