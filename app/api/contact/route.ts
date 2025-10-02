@@ -20,8 +20,13 @@ const lastSubmissionByIp = new Map<string, number>();
 function getClientIp(req: Request): string {
   const xf = req.headers.get("x-forwarded-for");
   if (xf) return xf.split(",")[0]?.trim() || "unknown";
-  const ra = (req as any).ip || (req as any).socket?.remoteAddress;
-  return typeof ra === "string" ? ra : "unknown";
+  type NodeRequestLike = {
+    ip?: string | null;
+    socket?: { remoteAddress?: string | null } | null;
+  };
+  const nodeReq = req as unknown as NodeRequestLike;
+  const ra = nodeReq.ip ?? nodeReq.socket?.remoteAddress ?? null;
+  return typeof ra === "string" && ra.length > 0 ? ra : "unknown";
 }
 
 function buildEmailHtml(
